@@ -1,7 +1,3 @@
-# This Python 3 environment comes with many helpful analytics libraries installed
-# It is defined by the kaggle/python Docker image: https://github.com/kaggle/docker-python
-# For example, here's several helpful packages to load
-
 import numpy as np # linear algebra
 import pandas as pd # data processing, CSV file I/O (e.g. pd.read_csv)
 
@@ -13,8 +9,6 @@ for dirname, _, filenames in os.walk('/kaggle/input'):
     for filename in filenames:
         print(os.path.join(dirname, filename))
 
-# You can write up to 20GB to the current directory (/kaggle/working/) that gets preserved as output when you create a version using "Save & Run All" 
-# You can also write temporary files to /kaggle/temp/, but they won't be saved outside of the current session
 movies = pd.read_csv('tmdb_5000_movies.csv')
 credits = pd.read_csv('tmdb_5000_credits.csv') 
 movies.head(2)
@@ -22,15 +16,7 @@ movies.shape
 credits.head()
 movies = movies.merge(credits,on='title')
 movies.head()
-# budget
-# homepage
-# id
-# original_language
-# original_title
-# popularity
-# production_comapny
-# production_countries
-# release-date(not sure)
+
 movies = movies[['movie_id','title','overview','genres','keywords','cast','crew']]
 movies.head()
 import ast
@@ -102,3 +88,4 @@ recommend('Gandhi')
 import pickle
 pickle.dump(new,open('movie_list.pkl','wb'))
 pickle.dump(similarity,open('similarity.pkl','wb'))
+
